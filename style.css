@@ -1,0 +1,134 @@
+:root {
+  --clr-cyan: hsl(179, 62%, 43%);
+  --clr-light-cyan: hsl(179, 52%, 65%);
+  --clr-bright-yellow: hsl(71, 73%, 54%);
+
+  --clr-light-gray: hsl(204, 43%, 93%);
+  --clr-grayish-blue: hsl(218, 22%, 67%);
+
+  --fw-400: 400;
+  --fw-700: 700;
+}
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  background-color: var(--clr-light-gray);
+  display: grid;
+  place-items: center;
+}
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 8px rgba(100, 100, 100, 0.2);
+}
+.top,
+.bottom-left,
+.bottom-right {
+  padding: 1.5rem 1rem;
+}
+h1 {
+  color: var(--clr-cyan);
+  font-weight: var(--fw-700);
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.2rem;
+}
+p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+.top p {
+  color: var(--clr-grayish-blue);
+}
+
+.top h2 {
+  color: var(--clr-bright-yellow);
+  margin-block: 1.5rem;
+}
+
+.bottom-left {
+  background-color: var(--clr-cyan);
+  color: #ffffff;
+}
+.price-box {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.big-price {
+  font-size: 4rem;
+  font-weight: var(--fw-700);
+}
+.p-month {
+  opacity: 0.5;
+  margin-left: 0.5rem;
+}
+button {
+  background-color: var(--clr-bright-yellow);
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px rgba(100, 100, 100, 0.3);
+}
+.bottom-right {
+  background-color: var(--clr-light-cyan);
+  color: #ffffff;
+  opacity: 5;
+}
+.bottom-right h2 {
+  margin-bottom: 1rem;
+}
+.bottom-right:last-child {
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 568px) {
+  .container {
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /*so that the bottom boxes are the same width*/
+    grid-template-rows: repeat(2 1fr);
+    grid-template-areas:
+      "top top"
+      "left right";
+  }
+  .top,
+  .bottom-left,
+  .bottom-right {
+    padding: 2.5rem 2rem;
+  }
+  .top {
+    grid-area: top;
+  }
+  .bottom-left {
+    grid-area: left;
+  }
+  .price-box {
+    margin-block: 2rem 1rem;
+  }
+  .bottom-right {
+    grid-area: right;
+  }
+  .bottom-right p {
+    font-size: 1.2rem;
+  }
+  button {
+    margin-top: 2rem;
+  }
+}
